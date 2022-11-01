@@ -1,22 +1,29 @@
+#define ll long long
+
 class Solution {
+
 public:
     bool isPalindrome(int x) {
-          string number = to_string(x);
-    vector<char> vect(number.begin(), number.end());
-    auto rit = vect.rbegin();
-    int i = 0;
-    bool temp;
-
-    for (; rit != vect.rend(); rit++) {
-        if (vect[i] == *rit) {
-            temp = true;
-        } else {
-            temp = false;
-            break;
-
-        }
-        i++;
+        
+    ll b = 0;
+    int temp = x;
+    if (x < 0 ){
+        return false;
     }
-    return temp;
+
+    while (x) {
+        b =( b * 10) + (x % 10);
+        x = x / 10;
+
+    }
+
+
+    if (b == temp) {
+        return true;
+    } else {
+        return false;
+    }
+
+
     }
 };
