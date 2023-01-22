@@ -9,20 +9,22 @@
  * }
  */
 class Solution {
+    // 1 -> 2 -> 3
     public ListNode reverseList(ListNode head) {
-        ListNode current = head;
-        ListNode previous = null; 
-ListNode next = null;
-        while(current != null){
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+        if(head == null || head.next == null){
+            return head;
+        }else{
+//             i want to iterate till i find the last element
+            ListNode newHead = reverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+//             after the first iteration newHead it will return 3 and set the case ;
+//             after second iteration new head will return 2 and set the case ;
+            
+            
+            return newHead;
             
         }
-        head = previous;
-        
-return head;
         
     }
 }
